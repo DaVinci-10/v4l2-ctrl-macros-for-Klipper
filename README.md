@@ -1,7 +1,7 @@
 # v4l2-ctrl-macros-for-Klipper
 V4L Camera controls Focus, Pan-Tilt-Zoom macros for use in Klipper 
-
-copy to your config folder and add include to printer.cfg
+This requires G-Code Shell Command to be installed.
+Then copy to your config folder and add include to printer.cfg
 
 **[include v4lctls.cfg]**
 
