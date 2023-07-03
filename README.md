@@ -1,6 +1,12 @@
 # v4l2-ctrl-macros-for-Klipper
 V4L Camera controls Focus, Pan-Tilt-Zoom macros for use in Klipper 
 
+* these defaults to /dev/video0 so.. if its not please change the macro with your camera to the commands
+
+-d /dev/video1
+or
+-d /dev/v4l/by-id/blabla-index0
+
 **This requires G-Code Shell Command to be installed.**
 
 Then copy the file to your config folder and add include to printer.cfg
