@@ -1,5 +1,7 @@
 # v4l2-ctrl-macros-for-Klipper
-V4L Camera controls macros for use in Klipper 
+V4L Camera Controls macros for use in Klipper fluidd/mainsail
+The camera that I have is a LifeCam 6000 1280x720@30fps. Others should work, you just have to run the Cam_Settings buttons to see what is available commands on your camera.
+
 Currently has:
 auto-Focus en/dis, Pan-Tilt-Zoom, Brightness, Contrast, and a get Cam_Settings button which displays current.
 Will be adding more as time permits.
@@ -17,13 +19,19 @@ Then copy the file to your config folder and add include to printer.cfg
 **[include v4lctls.cfg]**
 
 You may wish to add these macros in mainsail/fluidd as a new group.
+A few things to note:
+
+* In order to set a good focus: I first set to auto, let its do its thing, then reset auto focus disabled.
+
+* debian vs ubuntu utilizes different commands for the auto focus command for the same camera.
+So mod yours appropriatly.
 
 to obtain the controls availible for your camera, run this command in a ssh session on the host.
 v4l2-ctl -L
+edit: I added a Cam_Settings button to assist, it will display results in the console in klipper.
+
 It should output similar to the following.
-one thing to note, in order to set focus to anything other than default, you first have to set auto focus disabled.
-also note, debian vs ubuntu utilizes different commands for the auto focus command on the same camera.
-So mod yours approbriatly.
+
 
 ```
 brightness 0x00980900 (int)    : min=30 max=255 step=1 default=133 value=133
