@@ -7,7 +7,7 @@ V4L Camera controls Focus, Pan-Tilt-Zoom macros for use in Klipper
 or
 -d /dev/v4l/by-id/blabla-index0
 
-*This requires G-Code Shell Command to be installed.
+* This requires G-Code Shell Command to be installed.
 
 Then copy the file to your config folder and add include to printer.cfg
 
