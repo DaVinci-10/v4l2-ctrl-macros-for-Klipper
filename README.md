@@ -1,5 +1,8 @@
 # v4l2-ctrl-macros-for-Klipper
-V4L Camera controls Focus, Pan-Tilt-Zoom macros for use in Klipper 
+V4L Camera controls macros for use in Klipper 
+Currently has:
+auto-Focus en/dis, Pan-Tilt-Zoom, Brightness, Contrast, and a get Cam_Settings button which displays current.
+Will be adding more as time permits.
 
 * these defaults to /dev/video0 so.. if its not please change the macro with your camera to the commands
 
