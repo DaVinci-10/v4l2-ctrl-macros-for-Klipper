@@ -9,7 +9,7 @@ Then copy the file to your config folder and add include to printer.cfg
 
 You may wish to add these macros in mainsail/fluidd as a new group.
 
-to obtain teh controls availible for your camera, run this command in a ssh session on the host.
+to obtain the controls availible for your camera, run this command in a ssh session on the host.
 v4l2-ctl -L
 It should output similar to the following.
 one thing to note, in order to set focus to anything other than default, you first have to set auto focus disabled.
