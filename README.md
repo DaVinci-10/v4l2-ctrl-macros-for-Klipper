@@ -15,7 +15,7 @@ It should output similar to the following.
 one thing to note, in order to set focus to anything other than default, you first have to set auto focus disabled.
 also note, debian vs ubuntu utilizes different commands for the auto focus command on the same camera.
 So mod yours approbriatly.
-
+**
 brightness 0x00980900 (int)    : min=30 max=255 step=1 default=133 value=133
 contrast 0x00980901 (int)    : min=0 max=10 step=1 default=5 value=5
 saturation 0x00980902 (int)    : min=0 max=200 step=1 default=83 value=83
@@ -36,4 +36,4 @@ tilt_absolute 0x009a0909 (int)    : min=-201600 max=201600 step=3600 default=0 v
 focus_absolute 0x009a090a (int)    : min=0 max=40 step=1 default=0 value=13
 focus_auto 0x009a090c (bool)   : default=0 value=0
 zoom_absolute 0x009a090d (int)    : min=0 max=10 step=1 default=0 value=10
-#
+**
