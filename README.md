@@ -14,7 +14,19 @@ or
 
 * This requires G-Code Shell Command to be installed.
 
-Then copy the file to your config folder and add include to printer.cfg
+Then copy the contents of the v4lctls.cfg file to a file in your config folder (pics) 
+
+![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/656d081f-9b5c-4fca-928c-cb54b70dda5f)
+
+![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/f500f2d4-05ed-4d59-b4df-1317fdd000fd)
+
+![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/553642f2-fe1b-4b47-b43f-6e0711ffc202)
+
+![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/b4e8d938-2b42-4295-975a-a7d2063189d6)
+
+then hit control + V to paste, save and close. 
+
+then add include to printer.cfg save and restart to enable macros
 
 **[include v4lctls.cfg]**
 
