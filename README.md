@@ -11,8 +11,17 @@ Will be adding more as time permits.
 -d /dev/video1
 or
 -d /dev/v4l/by-id/blabla-index0
+for example mine is the lifecam: 
+* note it is critical there is a space at the end after index0, this is so parameters for the macros append properly.
 
-* This requires G-Code Shell Command to be installed.
+```
+[gcode_shell_command v4l2-ctl]
+command = v4l2-ctl -d /dev/v4l/by-id/usb-Microsoft_Microsoft®_LifeCam_HD-6000_for_Notebooks-video-index0
+timeout = 5.0
+verbose = True
+```
+
+* This also requires G-Code Shell Command to be installed.
 
 Then copy the contents of the v4lctls.cfg file to a file in your config folder (pics) 
 
