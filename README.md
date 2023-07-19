@@ -40,6 +40,8 @@ then add include to printer.cfg save and restart to enable macros
 **[include v4lctls.cfg]**
 
 You may wish to add these macros in mainsail/fluidd as a new group.
+![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/59219a5c-12c5-4c03-9946-29c98c176c7d)
+
 A few things to note:
 
 * In order to set a good focus: I first set to auto, let its do its thing, then reset auto focus disabled.
