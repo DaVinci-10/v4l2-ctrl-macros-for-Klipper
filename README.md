@@ -40,7 +40,8 @@ then add include to printer.cfg save and restart to enable macros
 **[include v4lctls.cfg]**
 
 You may wish to add these macros in mainsail/fluidd as a new group.
-![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/59219a5c-12c5-4c03-9946-29c98c176c7d)
+
+![image](https://github.com/DaVinci-10/v4l2-ctrl-macros-for-Klipper/assets/1100376/0a60e2b7-2f70-4e08-8aa9-b20a599517aa)
 
 A few things to note:
 
