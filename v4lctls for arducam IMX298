@@ -1,0 +1,165 @@
+# Runs a linux command or script from within klipper.  Note that sudo commands
+# that require password authentication are disallowed. All executable scripts
+# should include a shebang.
+#    v4l2-ctl -c pan_absolute=0
+#    v4l2-ctl -c tilt_absolute=0
+#    v4l2-ctl -c zoom_absolute=0
+#    v4l2-ctl -c pan_absolute=201600
+#    v4l2-ctl -c tilt_absolute=201600
+#    v4l2-ctl -c zoom_absolute=10
+#    v4l2-ctl -c pan_absolute=-201600
+#    v4l2-ctl -c tilt_absolute=201600
+#    v4l2-ctl -c zoom_absolute=5 #midway
+#    v4l2-ctl -c zoom_absolute=10
+#    v4l2-ctl -c focus_automatic_continuous=1   #debian_desktop
+#    v4l2-ctl -c focus_automatic_continuous=0
+#    v4l2-ctl -c focus_auto=1                   #ubuntu_server
+#    v4l2-ctl -c focus_auto=0
+#    v4l2-ctl -c brightness={BRIGHTNESS}
+#    v4l2-ctl -c contrast={CONTRAST}
+# video0 is the default for the macros, see example for non-video0
+# note there must be a space following the command: v4l2-ctl for parameters to work correctly.
+
+#[gcode_shell_command v4l2-ctl]
+#command = v4l2-ctl -d /dev/v4l/by-id/usb-Microsoft_Microsoft®_LifeCam_HD-6000_for_Notebooks-video-index0
+#timeout = 5.0
+#verbose = True
+
+[gcode_shell_command v4l2-ctl]
+command: v4l2-ctl -d  /dev/v4l/by-id/usb-Arducam_Technology_Co.__Ltd._Arducam_IMX298_AF_Camera_UC724-video-index0 
+timeout: 5.0
+verbose: True
+
+[gcode_macro cam_settings]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-l"
+
+########################################
+# Pan, Tilt, and Zoom
+########################################
+
+[gcode_macro pan_left]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c pan_absolute=201600"
+
+[gcode_macro pan_right]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c pan_absolute=-201600"
+
+[gcode_macro pan_center]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c pan_absolute=0"
+
+[gcode_macro tilt_up]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c tilt_absolute=-201600"
+
+[gcode_macro tilt_down]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c tilt_absolute=201600"
+
+[gcode_macro tilt_center]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c tilt_absolute=0"
+
+[gcode_macro zoom_in]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c zoom_absolute=10"
+
+[gcode_macro zoom_mid]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c zoom_absolute=5"
+
+[gcode_macro zoom_out]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c zoom_absolute=0"
+
+########################################
+# Focus
+########################################
+
+[gcode_macro focus_manual]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_automatic_continuous=0"
+
+[gcode_macro focus_auto]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_automatic_continuous=1"
+
+[gcode_macro focus_absolute]
+gcode:
+    {% set focus_absolute = params.FOCUS|default(1) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_absolute="{focus_absolute}
+
+########################################
+# Exposure
+########################################
+
+[gcode_macro brightness]
+gcode:
+    {% set brightness_level = params.BRIGHTNESS|default(0) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c brightness="{brightness_level}
+
+[gcode_macro contrast]
+gcode:
+    {% set contrast_level = params.CONTRAST|default(32) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c contrast="{contrast_level}
+
+[gcode_macro gamma]
+gcode:
+    {% set gamma = params.GAMMA|default(100) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c gamma="{gamma_level}
+
+[gcode_macro gain]
+gcode:
+    {% set gain = params.GAIN|default(0) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c gain="{gain_level}
+
+[gcode_macro exposure_time_absolute]
+gcode:
+    {% set exposure_time_absolute = params.EXPOSURE|default(157) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c exposure_time_absolute="{exposure_time}
+
+[gcode_macro exposure_auto]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c auto_exposure=3"
+
+[gcode_macro exposure_manual]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c auto_exposure=1"
+
+########################################
+# Color
+########################################
+
+[gcode_macro saturation]
+gcode:
+    {% set saturation = params.SATURATION|default(64) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c saturation="{saturation}
+
+[gcode_macro hue]
+gcode:
+    {% set hue = params.HUE|default(0) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c hue="{hue}
+
+[gcode_macro sharpness]
+gcode:
+    {% set sharpness = params.SHARPNESS|default(3) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c sharpness="{sharpness}
+
+########################################
+# Temperature
+########################################
+
+[gcode_macro white_balance_manual]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c white_balance_auto=0"
+
+[gcode_macro white_balance_auto]
+gcode:
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c white_balance_auto=1"
+
+[gcode_macro white_balance_temperature]
+gcode:
+    {% set white_balance_temperature = params.WHITE|default(4600) %}
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c white_balance_temperature="{temperature}
