@@ -80,15 +80,15 @@ gcode:
 
 [gcode_macro focus_manual]
 gcode:
-    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_auto=0"
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_automatic_continuous=0"
 
 [gcode_macro focus_auto]
 gcode:
-    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_auto=1"
+    RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_automatic_continuous=1"
 
 [gcode_macro focus_absolute]
 gcode:
-    {% set focus_absolute = params.FOCUS|default(14) %}
+    {% set focus_absolute = params.FOCUS|default(1) %}
     RUN_SHELL_COMMAND CMD=v4l2-ctl PARAMS="-c focus_absolute="{focus_absolute}
 
 ########################################
